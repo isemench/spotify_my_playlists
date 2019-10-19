@@ -68,7 +68,6 @@ app.get('/callback', function(req, res) {
                         'Authorization': 'Bearer ' + accessToken
                     }
                 };
-                var temp = 'Bearer ' + accessToken;
                 logs.info("<< Do user information request to Spotify");
                 request.get(userOptions, function(error, response, body) {
                     logs.info(">> User information response from Spotify");

@@ -1,12 +1,60 @@
 <!doctype html>
 <html>
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+<style type="text/css">
+  #login, #loggedin {
+    display: none;
+  }
+  .text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 500px;
+  }
+</style>
+<head>
+</head>
 <body>
     <div class="container">
         <div id="login">
             <h1>Spotify authorization</h1>
             <a href="/login" class="btn btn-primary">Login to Spotify</a>
         </div>
-        <div id="loggedIn"/>
+        <div id="loggedIn">
+            <h1>User logged in and authorized</h1>
+        </div>
     </div>
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script>
+        (function() {
+            function getHashParams() {
+                var params = {};
+                var regexp = /([^&;=]+)=?([^&;]*)/g;
+                var query = window.location.hash.substring(1);
+                var result;
+                while ((result = regexp.exec(query)) != null) {
+                    params[result[1]] = decodeURIComponent(result[2]);
+                }
+                return params;
+            }
+
+            var respParams = getHashParams();
+            var accessToken = respParams.access_token;
+            var error = respParams.error;
+            if (error) {
+                alert('Authentication error: ' + error);
+            }
+            else {
+                if (accessToken) {
+                    $('#login').hide();
+                    $('#loggedIn').show();
+                }
+                else {
+                    $('#login').show();
+                    $('#loggedIn').hide();
+                }
+            }
+        })();
+    </script>
 </body>
 </html>
