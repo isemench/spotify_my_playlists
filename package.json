@@ -1,0 +1,13 @@
+{
+    "name": "Spotify Playlists",
+    "version": "0.1",
+    "description": "Reads and displays Spotify playlists of the current user",
+    "main": "app.js",
+    "author": {
+        "name": "Igor Semenchukov",
+        "email": "igor.semenchukov@gmail.com"
+    },
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
