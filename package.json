@@ -12,7 +12,7 @@
     "repository": "github:isemench/spotify_my_playlists",
     "dependencies": {
         "cookie-parser": "^1.4.4",
-        "express": "^4.17.3",
+        "express": "^4.21.1",
         "request": "^2.88.0"
     }
 }
